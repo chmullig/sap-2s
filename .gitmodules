@@ -1,0 +1,3 @@
+[submodule "eda-designs"]
+	path = eda-designs
+	url = https://github.com/kyllikki/eda-designs.git

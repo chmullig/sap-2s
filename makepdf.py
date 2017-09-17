@@ -5,12 +5,12 @@ import subprocess
 import shutil
 
 SELECT_CMD = "gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dFirstPage={start} -dLastPage={end} -sOutputFile=\"{destination}\" \"{source}\""
-MERGE_CMD = " gs  -o {merged}  -sDEVICE=pdfwrite  -dColorConversionStrategy=/LeaveColorUnchanged  -dEncodeColorImages=false  -dEncodeGrayImages=false  -dEncodeMonoImages=false {files}"
+MERGE_CMD = " gs  -o {merged}  -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress  -dColorConversionStrategy=/LeaveColorUnchanged  -dEncodeColorImages=false  -dEncodeGrayImages=false  -dEncodeMonoImages=false {files}"
 
 tmpdir = tempfile.mkdtemp()
 print(tmpdir)
 files = []
-subprocess.run("pandoc README.md -s -o README.pdf", shell=True)
+subprocess.run("pandoc -V geometry:margin=1in -s -o README.pdf README.md", shell=True)
 with open("contents.csv") as csvf:
     contents = csv.DictReader(csvf)
     for i, entry in enumerate(contents):
