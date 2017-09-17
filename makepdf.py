@@ -9,6 +9,7 @@ MERGE_CMD = " gs  -o {merged}  -sDEVICE=pdfwrite  -dColorConversionStrategy=/Lea
 tmpdir = tempfile.mkdtemp()
 print(tmpdir)
 files = []
+subprocess.run("pandoc intro.md -s -o intro.pdf", shell=True)
 with open("contents.csv") as csvf:
     contents = csv.DictReader(csvf)
     for i, entry in enumerate(contents):
