@@ -1,3 +1,6 @@
 [submodule "eda-designs"]
 	path = eda-designs
 	url = https://github.com/kyllikki/eda-designs.git
+[submodule "beneater-eeprom-programmer"]
+	path = beneater-eeprom-programmer
+	url = https://github.com/beneater/eeprom-programmer
