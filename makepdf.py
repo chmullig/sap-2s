@@ -16,7 +16,7 @@ with open("contents.csv") as csvf:
     for i, entry in enumerate(contents):
         if entry['start']:
             destination = "{}_{}".format(i, entry['file'])
-            fn = os.path.join(tmpdir, entry['directory'] + destination)
+            fn = os.path.join(tmpdir, entry['directory'].replace("/", "_") + destination)
             files.append("\""+fn+"\"")
             cmd = SELECT_CMD.format(destination=fn,  source=os.path.join(entry['directory'], entry['file']), **entry)
             print(cmd)
